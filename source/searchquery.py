@@ -1,6 +1,6 @@
 # Using FAISS Search
-"FAISS (Facebook AI Similarity Search) is an open-source ", "library" ", for efficient similarity search and clustering of dense vectors. Developed by Meta AI Research, it is highly optimized for handling large-scale, high-dimensional datasets, enabling applications like image search, recommendation systems, and semantic search in NLP. "
-"FAISS provides various algorithms for indexing and searching, including flat (brute-force), inverted file, and product quantization methods, allowing users to balance between search accuracy and speed based on their specific needs."
+#"FAISS (Facebook AI Similarity Search) is an open-source ", "library" ", for efficient similarity search and clustering of dense vectors. Developed by Meta AI Research, it is highly optimized for handling large-scale, high-dimensional datasets, enabling applications like image search, recommendation systems, and semantic search in NLP. "
+#"FAISS provides various algorithms for indexing and searching, including flat (brute-force), inverted file, and product quantization methods, allowing users to balance between search accuracy and speed based on their specific needs."
 
 
 import pandas as pd
@@ -60,7 +60,7 @@ def search(query, language="en", top_k=5):
     """
     
     #Encode the query
-    query_embedding = model.encode(query, normalize_embeddings=True).astype('float32').reshape(1, -1)
+    query_embedding = model.encode( f"query: {query}", normalize_embeddings=True).astype('float32').reshape(1, -1)
     
     # Search FAISS index
     index  = index_en if language == "en" else index_fr
@@ -81,8 +81,6 @@ def search(query, language="en", top_k=5):
             "subject":  row["subject"],
         })
     return results
-
-
 
 
 

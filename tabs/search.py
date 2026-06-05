@@ -10,21 +10,21 @@ def render(model, df, index_en, index_fr):
         query = st.text_input(
             "Search",
             placeholder="e.g. water quality monitoring Ontario  /  qualité de l'eau Ontario",
-            label_visibility="collapsed"
+            label_visibility="visible"
         )
     with col2:
         lang = st.selectbox(
             "Language",
             options=["en", "fr"],
-            format_func=lambda x: "EN English" if x == "en" else "FR French",
-            label_visibility="collapsed",
-            help="Select which language index to search. For cross-lingual search, type in one language and select the other index."
+            format_func=lambda x: "EN English Embedding" if x == "en" else "FR French Embedding",
+            label_visibility="visible",
+            help="Compare the query vector with:\n\n EN → English embeddings\n\n FR → French embeddings"
         )
     with col3:
         top_k = st.selectbox(
             "Results",
             options=[5, 10, 15],
-            label_visibility="collapsed",
+            label_visibility="visible",
             help="Number of results to display"
         )
 

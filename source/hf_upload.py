@@ -13,7 +13,7 @@ save_path  = "D:/Harshita Ajmani/Code_harshu/NLP/deploy/"
 os.makedirs(save_path, exist_ok=True)
 
 # ── Step 1: Load original embeddings ─────────────────────────────────────────
-print("📂 Loading embeddings...")
+print(" Loading embeddings...")
 embeddings_en = np.load(data_path + "embeddings_en.npy").astype('float32')
 embeddings_fr = np.load(data_path + "embeddings_fr.npy").astype('float32')
 dataframe = pd.read_csv(data_path + "index_data.csv").fillna("")
