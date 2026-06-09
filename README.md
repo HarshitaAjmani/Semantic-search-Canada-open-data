@@ -103,7 +103,8 @@ record["notes"]            # Plain English string only
 record["notes_translated"] # {"en": "...", "fr": "..."}
 ```
 
-The `_translated` suffix signals bilingual content in this catalog.
+- The `_translated` suffix signals bilingual content in this catalog.
+
 ---
 
 ## HuggingFace Model Description
@@ -118,32 +119,34 @@ The `_translated` suffix signals bilingual content in this catalog.
 
 ## Setup and Installation
 
-### Step 1 — Clone the repo
+Step 1: Clone the repo
 
 ```bash
 git clone https://github.com/HarshitaAjmani/Semantic-search-Canada-open-data.git
 ```
 
-### Step 2 — Create conda environment
+Step 2: Create conda environment
 
 ```bash
 conda create -n search python -y
 conda activate search
 ```
 
-### Step 3 — Install dependencies
+Step 3: Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4 — Download the raw dataset
+Step 4: Download the raw dataset
 
 ---
 
 ### Steps:
 
 Run the scripts in following order.
+
+---
 
 Step 1: Clean the data
 
@@ -197,13 +200,12 @@ Step 4: Run evaluation
 
 **File:** `source/evaluate.ipynb`
 
-Saves `data/evaluation_results.csv` and `data/evaluation_results.png`
+**Saves:** `data/evaluation_results.csv` and `data/evaluation_results.png`
 ---
 
-### Step 5 — Prepare and upload to HuggingFace
+Step 5: Prepare and upload to HuggingFace
 
 **File:** `source/hf_upload.py`
-
 
 **Setup HuggingFace login:**
 ```python
@@ -231,7 +233,7 @@ index_data.csv      69.4 MB  ← lookup table for displaying results
 
 ---
 
-### Step 6 — Run the app locally
+Step 6: Run the app locally
 
 ```bash
 streamlit run app.py
@@ -243,7 +245,7 @@ Opens at `http://localhost:8501`
 
 ## Evaluation
 
-### Approach
+Approach
 
 We evaluated using **100 automatically generated queries** across 4 types:
 
