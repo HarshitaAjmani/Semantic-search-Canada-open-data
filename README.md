@@ -1,15 +1,4 @@
-Dataset Link = https://open.canada.ca/data/en/dataset/c4c5c7f1-bfa6-4ff6-b4a0-c164cb2060f7/resource/a79f7297-9b20-427a-be79-d286daa92412
-https://open.canada.ca/data/en/dataset/c4c5c7f1-bfa6-4ff6-b4a0-c164cb2060f7/resource/312a65c5-d0bc-4445-8a24-95b2690cc62b
-
-
-MODEL = 
-
-Links = 
-
-https://sbert.net/
-https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
-
-# Bilingual Semantic Search — Canadian Geospatial Metadata
+# Bilingual Semantic Search: Canadian Geospatial Metadata
 
 > This is a semantic search engine over 46,468 bilingual government datasets from Canada's Open Data Portal, 
 > supporting English and French queries including cross lingual searchs (EN query → FR results and vice versa).
@@ -24,7 +13,6 @@ https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-
 | HuggingFace Dataset (embeddings) | `https://huggingface.co/datasets/harshuajmani/nlp_geoCanada_embeddings` |
 | HuggingFace Model | `https://huggingface.co/intfloat/multilingual-e5-base` |
 | Canada Open Data Source |`https://open.canada.ca/data/en/dataset/c4c5c7f1-bfa6-4ff6-b4a0-c164cb2060f7/resource/27f49273-d645-4950-9a58-c3086d833d57` |
-| 
 
 ---
 
@@ -49,18 +37,17 @@ https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-
 ## Project Overview
 
 This is a **semantic search engine** over the Government of Canada's
-Open Data Catalog — the same dataset and problem domain used by
-[Geo.ca](https://geo.ca), Canada's national geospatial discovery platform.
+Open Data Catalog , the same dataset and problem domain used by Canada's national geospatial discovery platform.
 
 ### features: 
-- User types a query in English or French
-- System finds the 5 most semantically relevant datasets
-- Works cross lingually — French query finds English records and vice versa
+- Qeury input in both English or French.
+- Outputs top 5 semantically relevant data.
+- Processes cross lingually, French query finds English records and vice versa
 - Returns results in under 5ms across 46,468 records
 
 ---
 
-The model we chose (`multilingual-e5-base`) maps both languages into the
+The model used (`multilingual-e5-base`) maps both languages into the
 **same vector space**, meaning:
 
 ```
@@ -73,7 +60,7 @@ The model we chose (`multilingual-e5-base`) maps both languages into the
 ## Dataset
 
 #### Source
-**Canada Open Data Catalog** — Official metadata catalog of the Government of Canada
+**Canada Open Data Catalog** : Official metadata catalog of the Government of Canada
 
 - URL: `https://open.canada.ca/data/en/dataset/c4c5c7f1-bfa6-4ff6-b4a0-c164cb2060f7/resource/27f49273-d645-4950-9a58-c3086d833d57`
 - Format: JSON Lines (jsonl)
@@ -424,4 +411,6 @@ streamlit run app.py
 ---
 
 
-*Last updated: June 2026*
+Links = 
+https://sbert.net/
+https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
