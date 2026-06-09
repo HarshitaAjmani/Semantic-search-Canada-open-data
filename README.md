@@ -19,8 +19,7 @@
 ## 📋 Table of Contents
 
 1. [Project Overview](#project-overview)
-2. [Why Semantic Search](#why-semantic-search)
-3. [Dataset](#dataset)
+2. [Dataset](#dataset)
 4. [Model](#model)
 5. [Project Structure](#project-structure)
 6. [Setup and Installation](#setup-and-installation)
@@ -36,10 +35,6 @@
 
 ## Project Overview
 
-This is a **semantic search engine** over the Government of Canada's
-Open Data Catalog , the same dataset and problem domain used by Canada's national geospatial discovery platform.
-
-### features: 
 - Qeury input in both English or French.
 - Outputs top 5 semantically relevant data.
 - Processes cross lingually, French query finds English records and vice versa
@@ -48,21 +43,18 @@ Open Data Catalog , the same dataset and problem domain used by Canada's nationa
 ---
 
 The model used (`multilingual-e5-base`) maps both languages into the
-**same vector space**, meaning:
+**same vector space**
 
 ```
 "water quality"     → [0.21, 0.84, 0.11, ...]
-"qualité de l'eau"  → [0.22, 0.83, 0.12, ...]  ← nearly identical vectors!
+"qualité de l'eau"  → [0.22, 0.83, 0.12, ...]
 ```
 
 ---
 
 ## Dataset
-
-#### Source
 **Canada Open Data Catalog** : Official metadata catalog of the Government of Canada
 
-- URL: `https://open.canada.ca/data/en/dataset/c4c5c7f1-bfa6-4ff6-b4a0-c164cb2060f7/resource/27f49273-d645-4950-9a58-c3086d833d57`
 - Format: JSON Lines (jsonl)
 - Size: ~500MB compressed
 - Records: 46,468 government datasets
@@ -108,15 +100,13 @@ Note: The dataset has two kind of fileds `notes_translated` and `notes`.
 
 ```python
 record["notes"]            # Plain English string only
-record["notes_translated"] # {"en": "...", "fr": "..."} ← bilingual dict ✅
+record["notes_translated"] # {"en": "...", "fr": "..."}
 ```
 
-The `_translated` suffix signals bilingual content in this CKAN-based catalog.
-This is a subtle but critical discovery — missing it would mean losing all French descriptions.
-
+The `_translated` suffix signals bilingual content in this catalog.
 ---
 
-## Model Description
+## HuggingFace Model Description
 
 - **By:** Microsoft Research
 - **Parameters:** 278 million
@@ -137,8 +127,8 @@ git clone https://github.com/HarshitaAjmani/Semantic-search-Canada-open-data.git
 ### Step 2 — Create conda environment
 
 ```bash
-conda create -n semantic-search python -y
-conda activate semantic-search
+conda create -n search python -y
+conda activate search
 ```
 
 ### Step 3 — Install dependencies
@@ -149,14 +139,13 @@ pip install -r requirements.txt
 
 ### Step 4 — Download the raw dataset
 
-
 ---
 
-## Step by Step Pipeline
+### Steps:
 
-Run these in order.
+Run the scripts in following order.
 
-### Step 1 — Clean the data
+Step 1: Clean the data
 
 **File:** `source/load_data.ipynb`
 
@@ -164,7 +153,7 @@ Run these in order.
 
 ---
 
-### Step 2 — Generate embeddings
+Step 2: Generate embeddings
 
 **File:** `source/embeddings.ipynb`
 
@@ -185,9 +174,7 @@ print(torch.cuda.get_device_name(0))
 
 ---
 
-### Step 3 — Test search locally
-
-**File:** `source/searchquery.py`
+Step 3: Test search locally
 
 **Run:**
 ```bash
@@ -206,7 +193,7 @@ Search in EN or FR index? (en/fr): en
 
 ---
 
-### Step 4 — Run evaluation
+Step 4: Run evaluation
 
 **File:** `source/evaluate.ipynb`
 
