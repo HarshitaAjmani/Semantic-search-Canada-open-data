@@ -21,15 +21,11 @@
 1. [Project Overview](#project-overview)
 2. [Dataset](#dataset)
 4. [Model](#model)
-5. [Project Structure](#project-structure)
-6. [Setup and Installation](#setup-and-installation)
-7. [Step by Step Pipeline](#step-by-step-pipeline)
+5. [Setup and Installation](#setup-and-installation)
+7. [Steps](#steps)
 8. [Evaluation](#evaluation)
 9. [Deployment](#deployment)
-10. [Tech Stack](#tech-stack)
-11. [Key Concepts Explained](#key-concepts-explained)
-12. [Results](#results)
-13. [Limitations and Next Steps](#limitations-and-next-steps)
+10. [Results](#results)
 
 ---
 
@@ -244,11 +240,11 @@ Opens at `http://localhost:8501`
 
 ---
 
-## Evaluation
+## Evaluation Process
 
 Approach
 
-We evaluated using **100 automatically generated queries** across 4 types:
+Evaluation is done using **100 automatically generated queries** across 4 types:
 
 | Query Type | Count | Description |
 |---|---|---|
@@ -263,7 +259,7 @@ We evaluated using **100 automatically generated queries** across 4 types:
 3. Take first 4 meaningful words as query
 4. True answer = the source record
 
-### 4 Metrics --------------- CHecked till 
+Evaluation Metrics: 
 
 #### Metric 1 — Average Similarity Score
 Measures how confident the model is about its results.
@@ -287,7 +283,7 @@ Gap          : 0.0047
 
 ```
 
-⚠️ Important: Gap alone is meaningless. Gap = 0 could mean both scores
+Important: Gap alone is meaningless. Gap = 0 could mean both scores
 are 0.85 (excellent) OR both are 0.00 (broken). Always read alongside
 absolute scores.
 
@@ -343,59 +339,12 @@ High std = unpredictable, unreliable results
 ## Results
 
 ```
-Overall avg similarity score : 0.8554  ✅ High confidence
-EN vs FR gap                 : 0.0047  ✅ Perfect bilingual balance
-Cross-lingual consistency    : 40.8%   ⚠️ Moderate (expected)
-Score std deviation          : < 0.02  ✅ Highly consistent
+Overall avg similarity score : 0.8554  High confidence
+EN vs FR gap                 : 0.0047  Perfect bilingual balance
+Cross-lingual consistency    : 40.8%   Moderate (expected)
+Score std deviation          : < 0.02  Highly consistent
 
-All 100 queries scored above 0.70 threshold ✅
-```
-
----
-
-
-## Quick Reference
-
-### Run the full pipeline from scratch
-
-```bash
-# 1. Setup
-conda create -n semantic-search python=3.10 -y
-conda activate semantic-search
-pip install -r requirements.txt
-
-# 2. Download data
-curl -L -o data/od-do-canada.jsonl.gz "https://open.canada.ca/static/od-do-canada.jsonl.gz"
-gunzip data/od-do-canada.jsonl.gz
-
-# 3. Clean data
-python source/load_data.py
-
-# 4. Generate embeddings (needs GPU, takes ~8 mins)
-python source/embeddings.py
-
-# 5. Test search
-python source/searchquery.py
-
-# 6. Evaluate
-python source/evaluate.py
-
-# 7. Upload to HuggingFace
-python source/hf_login.py
-python source/hf_upload.py
-
-# 8. Run app
-streamlit run app.py
-```
-
-### Skip the pipeline (use pre-built files from HuggingFace)
-
-```bash
-# App downloads everything automatically on first run
-streamlit run app.py
-# → opens http://localhost:8501
-# → downloads from HuggingFace on first load (~2-3 mins)
-# → instant on subsequent runs
+All 100 queries scored above 0.70 threshold 
 ```
 
 ---
