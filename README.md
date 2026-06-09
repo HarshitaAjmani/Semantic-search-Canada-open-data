@@ -200,7 +200,8 @@ Step 4: Run evaluation
 
 **File:** `source/evaluate.ipynb`
 
-**Saves:** `data/evaluation_results.csv` and `data/evaluation_results.png`
+- **Saves:** `data/evaluation_results.csv` and `data/evaluation_results.png`
+
 ---
 
 Step 5: Prepare and upload to HuggingFace
