@@ -16,15 +16,15 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 1. [Project Overview](#project-overview)
 2. [Dataset](#dataset)
-4. [Model](#model)
+4. [Model](#huggingFace-model-description)
 5. [Setup and Installation](#setup-and-installation)
 7. [Steps](#steps)
-8. [Evaluation](#evaluation)
-9. [Deployment](#deployment)
+8. [Evaluation](#evaluation-process)
+9. [Deployment](#deploy-to-streamlit-cloud)
 10. [Results](#results)
 
 ---
