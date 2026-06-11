@@ -138,7 +138,7 @@ Step 4: Download the raw dataset
 
 ---
 
-### Steps:
+## Steps:
 
 Run the scripts in following order.
 
