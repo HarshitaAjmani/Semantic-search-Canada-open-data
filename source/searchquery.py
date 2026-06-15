@@ -11,7 +11,7 @@ from sentence_transformers import SentenceTransformer
 
 # Load the data and embeddings
 data_folder= "D:/Harshita Ajmani/Code_harshu/NLP/data"
-model = "intfloat/multilingual-e5-base"
+model_name = "intfloat/multilingual-e5-base"
 
 embeddings_en = np.load(f"{data_folder}/embeddings_en.npy").astype('float32')
 embeddings_fr = np.load(f"{data_folder}/embeddings_fr.npy").astype('float32')
@@ -21,13 +21,15 @@ print(f"Loaded {len(df):,} records")
 print(f"English embeddings shape: {embeddings_en.shape}")
 print(f"French embeddings shape: {embeddings_fr.shape}")
 
-".astype('float32') converts numbers to 32-bit floats — FAISS strictly requires float32, not float64"
+# ".astype('float32') converts numbers to 32-bit floats — FAISS strictly requires float32, not float64"
 
 
 
 #Building the FAISS Index
 
 dimension = embeddings_en.shape[1]  
+
+print(f"Building FAISS index with dimension: {dimension}")
 
 index_en = faiss.IndexFlatIP(dimension)  
 index_fr = faiss.IndexFlatIP(dimension)  
@@ -40,7 +42,7 @@ print(f"French index built — {index_fr.ntotal:,} vectors")
 
 #Loading the Model (for Query Encoding)
 device = "cuda" if torch.cuda.is_available() else "cpu"
-model  = SentenceTransformer(model  , device=device)
+model  = SentenceTransformer(model_name , device=device)
 
 
 
@@ -83,9 +85,6 @@ def search(query, language="en", top_k=5):
     return results
 
 
-
-
-
 # teasting the search function
 
 def print_results(query, lang, results):
@@ -104,7 +103,7 @@ def print_results(query, lang, results):
 
 
 if __name__ == "__main__":
-    print("\n🔍 Semantic Search — Canada Open Data Catalog")
+    print("\n Semantic Search — Canada Open Data Catalog")
     print("=" * 60)
     print("Languages: 'en' or 'fr'")
     print("=" * 60)

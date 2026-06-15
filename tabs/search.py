@@ -74,8 +74,7 @@ def render(model, df, index_en, index_fr):
     else:
         st.markdown("""
             <div style="text-align:center; padding:50px 0; color:#444444;">
-                <div style="font-size:40px;">🔍</div>
-                <div style="font-size:16px; margin-top:10px;">Type a query above to search</div>
+                <div style="font-size:16px; margin-top:10px; color:#FFFFFF;">Type a query above to search</div>
                 <div style="font-size:13px; margin-top:8px; color:#555555;">
                     Try: "water quality Ontario" · "forest fire satellite" · "climate change Canada"<br>
                     En français: "qualité de l'eau" · "incendies de forêt" · "changements climatiques"
