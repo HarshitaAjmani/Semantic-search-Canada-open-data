@@ -9,7 +9,7 @@
 
 | Resource | Link |
 |---|---|
-| Demo | deployment |
+| Demo | `https://semantic-search-ha.streamlit.app/`|
 | HuggingFace Dataset (embeddings) | `https://huggingface.co/datasets/harshuajmani/nlp_geoCanada_embeddings` |
 | HuggingFace Model | `https://huggingface.co/intfloat/multilingual-e5-base` |
 | Canada Open Data Source |`https://open.canada.ca/data/en/dataset/c4c5c7f1-bfa6-4ff6-b4a0-c164cb2060f7/resource/27f49273-d645-4950-9a58-c3086d833d57` |
